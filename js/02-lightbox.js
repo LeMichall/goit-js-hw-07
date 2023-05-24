@@ -13,7 +13,6 @@ const createGallery = () => {
     const a = document.createElement("a");
     const img = document.createElement("img");
     // assign classes
-
     a.classList.add("gallery__item");
     img.classList.add("gallery__image");
     // assign attributes
@@ -28,6 +27,7 @@ const createGallery = () => {
   gallery.append(...tempGallery);
 };
 createGallery();
+
 const lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionPosition: "outside",
@@ -38,8 +38,8 @@ function eventHandler(event) {
   // blocking unwanted click behaviour
   event.preventDefault();
   if (event.target.nodeName !== "IMG") return;
+
   lightbox.open(event.target);
-  console.log(lightbox);
 }
 
 gallery.addEventListener("click", eventHandler);
